@@ -1,0 +1,81 @@
+@import '../../util/vars/layout';
+
+.page-frame {
+  overflow: hidden;
+
+  .content-container {
+    padding: 0 20px;
+  }
+
+  &.red {
+    background-color: $red;
+  }
+
+  &.white {
+    background-color: $white;
+  }
+
+  &.blue {
+    background-color: $blue;
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+
+  &.grey {
+    background-color: $pumice;
+  }
+
+  &.has-gutter {
+    .content-container {
+      padding-bottom: 22px;
+    }
+  }
+
+  &.show-grid {
+    background-size: 15px 15px;
+    background-image: linear-gradient(to right, $pumice 1px, transparent 1px),
+    linear-gradient(to bottom, $pumice 1px, transparent 1px);
+  }
+}
+
+@include respond-to(desktop) {
+  .page-frame {
+
+    $gutter-width: 15px;
+
+    max-width: none;
+
+    padding-left: $gutter-width;
+    padding-right: $gutter-width;
+
+    .content-container {
+      margin: 0 auto;
+      padding: 0;
+      max-width: $desktop-content-max-width;
+    }
+
+    &.has-gutter {
+      .content-container {
+        padding-right: 25.33%;
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+
+@include respond-to(big-desktop) {
+  .page-frame {
+    padding-left: 0;
+    padding-right: 0;
+
+    &.has-gutter {
+      .content-container {
+        padding-right: 300px;
+      }
+    }
+
+  }
+}
+

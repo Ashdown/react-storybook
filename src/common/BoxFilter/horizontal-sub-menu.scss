@@ -1,0 +1,109 @@
+@include respond-to(desktop) {
+
+  .horizontal-sub-menu {
+
+    $sub-menu-width: 300px;
+    $sub-menu-height: 360px;
+
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    width: $sub-menu-width + 1px;
+    display: none;
+    overflow: hidden;
+    background-color: $white;
+    z-index: 100;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+
+
+    .face {
+      position: relative;
+      padding: 15px;
+    }
+
+    .filter-search-input {
+      margin-top: 0;
+      .input {
+        padding: 10px;
+        background-color: $granite;
+        color: $white;
+        border-bottom: none;
+        font-size: 16px;
+      }
+    }
+
+    .option-item {
+      border-bottom: 1px solid $granite;
+      &.part, &.past {
+        border-width: 5px;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .checkbox-container {
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: $sub-menu-height - 42px - 30px;
+    }
+
+    .dk-checkbox {
+      margin-top: 5px;
+      min-height: 35px;
+    }
+
+    .checkbox-skin {
+      margin-top: 0;
+    }
+
+    .sub-menu-top-border,
+    .sub-menu-bottom-border {
+      height: 2px;
+      right: 0;
+    }
+
+    .sub-menu-top-border {
+      left: 150px;
+      top: 0;
+    }
+
+    .sub-menu-bottom-border {
+      left: 0;
+      bottom: 0;
+    }
+
+    .sub-menu-right-border,
+    .sub-menu-left-border {
+      width: 2px;
+      top: 0;
+      bottom: 0;
+    }
+
+    .sub-menu-right-border {
+      right: 0;
+    }
+
+    .sub-menu-left-border {
+      left: 0;
+    }
+    &.open {
+      display: block;
+    }
+  }
+}
+
+@include respond-to(big-desktop) {
+
+  .horizontal-sub-menu {
+
+    $sub-menu-width: 350px;
+
+    width: $sub-menu-width + 1px;
+
+    .sub-menu-top-border {
+      left: $sub-menu-width / 2;
+      top: 0;
+    }
+  }
+}

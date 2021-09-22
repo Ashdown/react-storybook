@@ -1,0 +1,114 @@
+.timeline-list {
+
+  $circle-width: 16px;
+  $border-width: 2px;
+  $border-offset: $border-width / 2;
+
+  margin-top: 20px;
+
+  .timeline-item {
+    position: relative;
+    margin-left: $circle-width / 2;
+    border-left: 2px solid $red;
+    padding: 0 0 30px ($circle-width / 2 + 10px);
+
+    &:before {
+      content: '';
+      height: $circle-width - 2px;
+      width: $circle-width - 2px;
+      display: block;
+      border-radius: 50%;
+      border: 1px solid $red;
+      background-color: $red;
+      position: absolute;
+      top: 0;
+      left: -($circle-width / 2) - $border-offset;
+    }
+
+    &:last-child {
+      border-color: transparent;
+      padding-bottom: 0;
+    }
+  }
+  .tertiary-heading {
+    margin-top: 0;
+    line-height: 1em;
+    font-size: 16px;
+  }
+  .abstract-text {
+    margin-top: 1px;
+  }
+  .body-text.strong {
+    margin-top: 10px;
+  }
+
+  &.white {
+    .timeline-item {
+      border-left-color: $white;
+      &:before {
+        border-color: $white;
+        background-color: $white;
+      }
+      &:last-child {
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .timeline-list {
+    .timeline-item {
+      margin-left: 8px;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .timeline-list {
+    $circle-width: 22px;
+    $border-width: 2px;
+    $border-offset: $border-width / 2;
+
+    margin-top: 40px;
+
+    .timeline-item {
+      margin-left: 8px + $border-offset;
+      padding-left: 29px;
+      padding-bottom: 50px;
+      &:before {
+        height: $circle-width - 2px;
+        width: $circle-width - 2px;
+        left: -($circle-width / 2) - $border-offset;
+      }
+    }
+    .tertiary-heading {
+      position: relative;
+      text-transform: uppercase;
+      font-size: 22px;
+    }
+    .body-text.strong {
+      margin-top: 15px;
+    }
+  }
+}
+
+@include respond-to(big-desktop) {
+  .timeline-list {
+
+    $circle-width: 20px;
+    $border-width: 2px;
+    $border-offset: $border-width / 2;
+
+    margin-top: 40px;
+    .timeline-item {
+      margin-left: 8px + $border-offset;
+      padding-bottom: 50px;
+    }
+    .timeline-item:before {
+      height: $circle-width - 2px;
+      width: $circle-width - 2px;
+      left: -($circle-width / 2) - $border-offset;
+    }
+  }
+}

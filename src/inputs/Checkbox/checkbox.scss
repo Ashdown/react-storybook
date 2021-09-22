@@ -1,0 +1,184 @@
+@mixin get-skin($colour) {
+  input.error + .text {
+    &:before {
+      border-color: $colour;
+      background-color: $colour;
+    }
+  }
+
+  input:checked + .text,
+  &.selected .text {
+    &:before {
+      border-color: $colour;
+      background-color: $colour;
+    }
+  }
+
+  input:focus {
+    &:before {
+      border-color: $colour;
+      background-color: $colour;
+    }
+  }
+
+  input:hover,
+  input:focus,
+  &:hover,
+  &:focus {
+    color: $colour;
+  }
+}
+
+
+.dk-checkbox {
+  margin-top: 10px;
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5em;
+  user-select: none;
+  cursor: pointer;
+  color: $basalt;
+  min-height: 22px;
+  position: relative;
+  @include transition(all 0.2s linear);
+
+  .text {
+    padding: 5px 0 0 30px;
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      transition: all 0.2s ease;
+    }
+
+    &:before {
+      top: 3px;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid $granite;
+      background-color: $granite;
+    }
+
+    &:after {
+      top: 7px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center;
+      content: '';
+      opacity: 0;
+      color: $white;
+      @include font-awesome-icon('\f00c');
+    }
+  }
+
+  .postscript {
+    float: right;
+    color: $granite;
+    font-size: 14px;
+  }
+
+  input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  input.error + .text {
+    &:before {
+      border-color: $red;
+      background-color: rgba($red, .025);
+    }
+  }
+
+  input:checked + .text,
+  &.selected .text {
+    &:before {
+      border-color: $red;
+      background-color: $red;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  input:disabled + .text {
+    opacity: 0.5;
+
+    &:before {
+      border-color: $granite;
+      background-color: $granite;
+    }
+  }
+
+  input:focus {
+    &:before {
+      border-color: $red;
+      background-color: $red;
+    }
+  }
+
+  input:hover,
+  input:focus,
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+
+  &.red {
+    @include get-skin($red);
+  }
+
+  &.blue {
+    @include get-skin($blue);
+  }
+
+}
+
+@include respond-to(tablet) {
+  .dk-checkbox {
+    margin-top: 15px;
+    font-size: 16px;
+
+    .text {
+      padding-top: 1px;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .dk-checkbox {
+
+    .text {
+      font-size: 16px;
+      line-height: 1.4em;
+      padding-left: 35px;
+      padding-top: 5px;
+
+      &:before {
+        width: 23px;
+        height: 23px;
+      }
+
+      &:after {
+        width: 18px;
+        height: 18px;
+        font-size: 16px;
+        line-height: 18px;
+      }
+    }
+  }
+}

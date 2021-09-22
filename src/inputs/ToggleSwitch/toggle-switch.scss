@@ -1,0 +1,188 @@
+//toggle switch unique colours
+$toggle-switch-green: #47ce00;
+$toggle-switch-dark-green: #469b00;
+$toggle-switch-dark-amber: #bb5300;
+
+@mixin get-toggle-switch-style($active-colour, $active-hover-colour, $inactive-colour, $inactive-hover-colour) {
+  .toggle-text {
+    color: $inactive-colour;
+  }
+  .slider-background {
+    border-color: $inactive-colour;
+  }
+  .slider {
+    background-color: $inactive-colour;
+  }
+  input:checked ~ .toggle-text {
+    color: $active-colour;
+  }
+  input:checked ~ .slider-background{
+    border-color: $active-colour;
+  }
+  input:checked ~ .slider{
+    background-color: $active-colour;
+  }
+  &:hover:not(.disabled) {
+    .toggle-text {
+      color: $inactive-hover-colour;
+    }
+    .slider-background{
+      border-color: $inactive-hover-colour;
+    }
+    .slider{
+      background-color: $inactive-hover-colour;
+    }
+    input:checked ~ .toggle-text {
+      color: $active-hover-colour;
+    }
+    input:checked ~ .slider-background{
+      border-color: $active-hover-colour;
+    }
+    input:checked ~ .slider{
+      background-color: $active-hover-colour;
+    }
+  }
+}
+
+.dk-toggle-switch {
+
+  margin-top: $GUTTER_WIDTH_MOBILE;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  .toggle-text,
+  .slider-background {
+    display: inline-block;
+    float: left;
+  }
+
+  .toggle-text {
+    line-height: $GUTTER_WIDTH_MOBILE * 2;
+    color: $amber;
+    font-weight: 600;
+  }
+
+  .slider-background,
+  .slider {
+    height: $GUTTER_WIDTH_MOBILE * 2;
+  }
+
+  .slider-background {
+    width: $GUTTER_WIDTH_MOBILE * 4;
+    border: 2px solid $amber;
+    margin-left: $GUTTER_WIDTH_MOBILE;
+    background-color: $white;
+  }
+
+  .icon-container {
+    width: $GUTTER_WIDTH_MOBILE * 2 - 2px;
+    float: left;
+    font-size: 16px;
+    line-height: $GUTTER_WIDTH_MOBILE * 2 - 2px;
+    color: $white;
+    text-align: center;
+    position: relative;
+    z-index: 200;
+    &:first-child {
+      padding-right: 2px;
+    }
+    &:last-child {
+      padding-left: 2px;
+    }
+  }
+
+  .slider {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: $GUTTER_WIDTH_MOBILE * 2;
+    top: 0;
+    right: 0;
+    background-color: $amber;
+    z-index: 100;
+    @include transition(right 0.2s linear);
+  }
+
+  input:checked ~ .toggle-text {
+    color: $toggle-switch-green;
+  }
+
+  input:checked ~ .slider-background {
+    border-color: $toggle-switch-green;
+  }
+
+  input:checked ~ .slider {
+    right: $GUTTER_WIDTH_MOBILE * 2;
+    background-color: $toggle-switch-green;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &:hover:not(.disabled) {
+    .toggle-text {
+      color: $toggle-switch-dark-amber;
+    }
+
+    .slider-background {
+      border-color: $toggle-switch-dark-amber;
+    }
+    .slider {
+      background-color: $toggle-switch-dark-amber;
+    }
+
+    input:checked ~ .toggle-text {
+      color: $toggle-switch-dark-green;
+    }
+
+    input:checked ~ .slider-background {
+      border-color: $toggle-switch-dark-green;
+    }
+
+    input:checked ~ .slider {
+      background-color: $toggle-switch-dark-green;
+    }
+  }
+
+  &.red {
+    @include get-toggle-switch-style($red, $dark-red, $basalt, $red);
+  }
+
+}
+
+@include respond-to(desktop) {
+  .dk-toggle-switch {
+    margin-top: $GUTTER_WIDTH_DESKTOP;
+
+    .toggle-text {
+      line-height: $GUTTER_WIDTH_DESKTOP * 2;
+    }
+
+    .slider-background,
+    .slider {
+      height: $GUTTER_WIDTH_DESKTOP * 2;
+    }
+
+    .slider-background {
+      width: $GUTTER_WIDTH_DESKTOP * 4;
+      margin-left: $GUTTER_WIDTH_DESKTOP;
+    }
+
+    .icon-container {
+      width: $GUTTER_WIDTH_DESKTOP * 2 - 2px;
+      line-height: $GUTTER_WIDTH_DESKTOP * 2 - 2px;
+      font-size: 20px;
+    }
+
+    .slider {
+      width: $GUTTER_WIDTH_DESKTOP * 2;
+    }
+
+    input:checked ~ .slider {
+      right: $GUTTER_WIDTH_DESKTOP * 2;
+    }
+  }
+}

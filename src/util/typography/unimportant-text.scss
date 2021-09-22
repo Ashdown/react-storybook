@@ -1,0 +1,9 @@
+.unimportant-text {
+  font-size: 12px;
+}
+
+@include respond-to(desktop) {
+  .unimportant-text {
+    font-size: 14px;
+  }
+}

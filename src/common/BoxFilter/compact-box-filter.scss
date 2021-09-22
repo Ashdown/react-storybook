@@ -1,0 +1,133 @@
+.compact-box-filter {
+
+  margin-top: 10px;
+
+  .open-main-menu-button {
+    background-color: $red;
+    color: $white;
+    &:hover {
+      background-color: $dark-red;
+    }
+  }
+
+  .main-menu,
+  .main-menu-navigation {
+    z-index: 1050;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    @include transition(right 0.2s linear);
+  }
+
+  .main-menu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1050;
+    bottom: 0;
+    background-color: $white;
+    padding-bottom: 10px;
+    &.open {
+      right: 0;
+      .main-menu-navigation {
+        right: 0;
+      }
+    }
+  }
+
+  .main-menu {
+    background-color: $red;
+    padding-top: 61px;
+  }
+
+  .main-menu-navigation {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $white;
+    background-color: $red;
+  }
+
+  .main-menu-heading {
+    color: $white;
+  }
+
+  .remove-filters-button {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .main-menu-list {
+    margin-top: 10px;
+    border-bottom: 1px solid $white;
+  }
+
+  .searchbox .input {
+    background-color: $white;
+    padding: $GUTTER_WIDTH_MOBILE;
+    border-bottom: none;
+  }
+
+  .dk-toggle-switch.red {
+    margin-bottom: $GUTTER_WIDTH_MOBILE;
+    .slider {
+      z-index: 500;
+    }
+    .icon-container {
+      color: $red;
+      z-index: 600;
+    }
+
+    .toggle-text,
+    input:checked ~ .toggle-text {
+      color: $white;
+    }
+
+    .slider,
+    input:checked ~ .slider {
+      background-color: $white;
+    }
+
+    .slider-background,
+    input:checked ~ .slider-background {
+      background-color: $red;
+      border-color: $white;
+    }
+
+    &:hover:not(.disabled) {
+      .toggle-text,
+      input:checked ~ .toggle-text {
+        color: $pumice;
+      }
+
+      .slider,
+      input:checked ~ .slider {
+        background-color: $pumice;
+      }
+
+      .slider-background,
+      input:checked ~ .slider-background {
+        border-color: $pumice;
+      }
+    }
+  }
+
+  .open-sub-menu-button {
+    color: $white;
+    border-top: 1px solid $white;
+    background-color: $red;
+    &:hover {
+      background-color: $dark-red;
+    }
+  }
+
+  .close-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+}
+
+@include respond-to(desktop) {
+  .new-page .compact-box-filter {
+    display: none;
+  }
+}

@@ -1,0 +1,153 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {
+    PrimaryHeading,
+    SecondaryHeading,
+    TertiaryHeading,
+    QuaternaryHeading,
+    AbstractText,
+    BodyText,
+    SmallText,
+    TechnicalText,
+    UnimportantText
+} from '../src/atoms/typography'
+import {H1, H2, H3, H4, P, Li, Label} from '../src/atoms/typography/helpers'
+import {
+    SquareButton,
+    MintMintButton,
+    MintTransparentButton,
+    RedRedButton,
+    RedWhiteButton,
+    TransparentGreyButton,
+    TransparentRedButton,
+    TransparentTransparentButton,
+    TransparentWhiteButton,
+    TransparentYellowButton,
+    WhiteBlueButton,
+    WhiteGreyButton,
+    WhiteRedButton,
+    WhiteWhiteBlueButton,
+    WhiteWhiteButton,
+    WhiteWhiteRedButton,
+    IsometricButton,
+    IsometricRedButton,
+    IsometricWhiteButton,
+    IsometricRedInvertButton,
+} from '../src/atoms/SquareButtons'
+import {
+    Icon,
+    Bolt,
+    Chevron
+} from '../src/atoms/Icons'
+import { createUseStyles } from 'react-jss'
+
+<Meta title="Atoms" component={BodyText}/>
+
+# Tokens
+
+Put the tokens here when you are more comfortable with the implementation
+
+export const getStyles = createUseStyles({
+    customButton: {
+        color: 'red'
+    }
+});
+
+<Canvas>
+    <Story name="Body Text">
+        <BodyText className={getStyles().customButton}>Test component</BodyText>
+        <P.BodyText className={getStyles().customButton}>Test component</P.BodyText>
+        <PrimaryHeading>Lorem ipsum dolar sit amet</PrimaryHeading>
+        <SecondaryHeading>Lorem ipsum dolar sit amet</SecondaryHeading>
+        <TertiaryHeading>Lorem ipsum dolar sit amet</TertiaryHeading>
+        <QuaternaryHeading>Lorem ipsum dolar sit amet</QuaternaryHeading>
+        <AbstractText>Lorem ipsum</AbstractText>
+        <BodyText>Lorem ipsum</BodyText>
+        <UnimportantText>Lorem ipsum</UnimportantText>
+        <SmallText>Lorem ipsum</SmallText>
+        <TechnicalText>Lorem ipsum</TechnicalText>
+        <P>Default Paragraph</P>
+        <P.PrimaryHeading>Paragraph as Primary Heading</P.PrimaryHeading>
+        <P.SecondaryHeading>Paragraph as Secondary Heading</P.SecondaryHeading>
+        <P.TertiaryHeading>Paragraph as Tertiary Heading</P.TertiaryHeading>
+        <P.QuaternaryHeading>Paragraph as Quaternary Heading</P.QuaternaryHeading>
+        <P.AbstractText>Paragraph as Abstract Text</P.AbstractText>
+        <P.BodyText>Paragraph as Body Text</P.BodyText>
+        <P.SmallText>Paragraph as Small Text</P.SmallText>
+        <P.UnimportantText>Paragraph as Unimportant Text</P.UnimportantText>
+        <H1.PrimaryHeading>h1 as Primary Heading</H1.PrimaryHeading>
+        <H2.PrimaryHeading>h2 as Primary Heading</H2.PrimaryHeading>
+        <H3.PrimaryHeading>h3 as Primary Heading</H3.PrimaryHeading>
+        <H4.PrimaryHeading>h4 as Primary Heading</H4.PrimaryHeading>
+        <P.PrimaryHeading>p as Primary Heading</P.PrimaryHeading>
+        <Label.QuaternaryHeading>Sample Label</Label.QuaternaryHeading>
+        <Icon/>
+        <Bolt/>
+        <Chevron/>
+        <ul>
+            <Li.PrimaryHeading>li as Primary Heading</Li.PrimaryHeading>
+        </ul>
+        <div>
+            <SquareButton>Default Square Button</SquareButton>
+        </div>
+        <div>
+            <MintMintButton>Mint Mint Button</MintMintButton>
+        </div>
+        <div>
+            <MintTransparentButton>Mint Transparent Button</MintTransparentButton>
+        </div>
+        <div>
+            <RedRedButton>Red Red Button</RedRedButton>
+        </div>
+        <div>
+            <RedWhiteButton>Red White Button</RedWhiteButton>
+        </div>
+        <div>
+            <TransparentGreyButton>Transparent Grey Button</TransparentGreyButton>
+        </div>
+        <div>
+            <TransparentRedButton>Transparent Red Button</TransparentRedButton>
+        </div>
+        <div>
+            <TransparentTransparentButton>Transparent Transparent Button</TransparentTransparentButton>
+        </div>
+        <div>
+            <TransparentWhiteButton>Transparent White Button</TransparentWhiteButton>
+        </div>
+        <div>
+            <TransparentYellowButton>Transparent Yellow Button</TransparentYellowButton>
+        </div>
+        <div>
+            <WhiteBlueButton>White Blue Button</WhiteBlueButton>
+        </div>
+        <div>
+            <WhiteGreyButton>White Grey Button</WhiteGreyButton>
+        </div>
+        <div>
+            <WhiteRedButton>White Red Button</WhiteRedButton>
+        </div>
+        <div>
+            <WhiteWhiteBlueButton>White White Blue Button</WhiteWhiteBlueButton>
+        </div>
+        <div>
+            <WhiteWhiteButton>White White Button</WhiteWhiteButton>
+        </div>
+        <div>
+            <WhiteWhiteRedButton>White White Red Button</WhiteWhiteRedButton>
+        </div>
+        <div>
+            <MintMintButton to="http://www.google.com">Link as a button</MintMintButton>
+        </div>
+        <div>
+            <IsometricButton to="http://www.google.com">Isometric button</IsometricButton>
+        </div>
+        <div>
+            <IsometricRedButton to="http://www.google.com">Isometric button</IsometricRedButton>
+        </div>
+        <div>
+            <IsometricWhiteButton to="http://www.google.com">Isometric button</IsometricWhiteButton>
+        </div>
+        <div>
+            <IsometricRedInvertButton to="http://www.google.com">Isometric button</IsometricRedInvertButton>
+        </div>
+    </Story>
+</Canvas>

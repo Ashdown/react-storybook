@@ -1,0 +1,6 @@
+.chevron {
+  &:before {
+    @include font-awesome('\f078');
+    display: inline-block;
+  }
+}

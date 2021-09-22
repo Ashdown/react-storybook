@@ -1,0 +1,17 @@
+.actions-section {
+
+  .buttons-list {
+    padding-bottom: 15px;
+    .square-button {
+      margin-top: 10px;
+      display: block;
+      min-width: 285px;
+      &.block {
+        min-width: 279px;
+        margin-bottom: 15px;
+      }
+    }
+
+  }
+
+}

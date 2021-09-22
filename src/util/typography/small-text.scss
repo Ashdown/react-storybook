@@ -1,0 +1,12 @@
+.small-text {
+  font-size: 12px;
+  line-height: 1.5em;
+  margin-top: 10px;
+}
+
+
+@include respond-to(desktop) {
+  .small-text {
+    margin-top: 15px;
+  }
+}

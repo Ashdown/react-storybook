@@ -1,0 +1,173 @@
+.root {
+  $grid-size: 10px;
+  background-size: $grid-size $grid-size;
+  background-image: linear-gradient(to right, $pumice 1px, transparent 1px),
+  linear-gradient(to bottom, $pumice 1px, transparent 1px);
+}
+
+.demo-header-primary,
+.demo-header-secondary,
+.demo-header-tertiary,
+.demo-navigation,
+.demo-description {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1em;
+}
+
+.demo-header-primary,
+.demo-header-secondary,
+.demo-header-tertiary,
+.demo-description {
+  margin-top: 15px;
+}
+
+
+.demo-header-secondary,
+.demo-header-tertiary,
+.demo-description {
+  color: $andesite;
+}
+
+.demo-header-primary {
+  font-size: 30px;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.demo-header-secondary,
+.demo-header-tertiary,
+.demo-navigation-link
+.demo-navigation-sub-link{
+  font-size: 15px;
+}
+
+.demo-header-secondary {
+  font-weight: 600;
+}
+
+.demo-description {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.demo-navigation {
+  overflow: hidden;
+}
+
+.demo-navigation-item {
+  float: left;
+  width: 50%;
+  margin-top: 15px;
+}
+
+.demo-navigation-link {
+  display: block;
+  background-color: $white;
+  color: $jaffa-orange;
+  border: 2px solid $white;
+  line-height: 28px;
+  padding: 0 15px;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+    background-color: $jaffa-orange;
+    color: $white;
+  }
+  &.left {
+    margin-right: 7.5px;
+  }
+  &.right {
+    margin-left: 7.5px;
+  }
+}
+
+.demo-navigation-sub-item {
+  float: left;
+  padding-bottom: 15px;
+}
+
+.demo-navigation-sub-link {
+  padding: 15px 7.5px;
+  display: inline-block;
+  border-bottom: 2px solid $white;
+  color: $white;
+  text-transform: capitalize;
+  &:hover {
+    color: $red;
+    border-color: $red;
+  }
+}
+
+.demo-navigation-item:first-child {
+  .demo-navigation-link {
+    padding-left: 0;
+  }
+}
+
+.page-frame.grey {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+@include respond-to(desktop) {
+
+  .root {
+    $grid-size: 15px;
+    background-size: $grid-size $grid-size;
+  }
+
+  .demo-header-primary {
+    font-size: 60px;
+    font-weight: 600;
+  }
+
+  .demo-header-primary,
+  .demo-header-secondary,
+  .demo-header-tertiary,
+  .demo-description{
+    margin-top: 30px;
+  }
+
+  .demo-header-secondary {
+    font-size: 45px;
+  }
+
+  .demo-header-tertiary {
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .demo-description {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .demo-navigation-item {
+    width: 33%;
+    font-size: 45px;
+    margin-top: 30px;
+  }
+
+  .demo-navigation-link {
+    line-height: 60px;
+  }
+
+  .demo-navigation-sub-link {
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 30px;
+  }
+
+  .page-frame.grey {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+
+}
+
+@import 'grid-section';
+@import 'palette-section';
+@import 'actions-section';

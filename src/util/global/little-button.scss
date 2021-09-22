@@ -1,0 +1,22 @@
+.little-button {
+  color: $red;
+  display: inline;
+  margin-right: 15px;
+  padding: 4px 0;
+  font-size: 12px;
+  line-height: 1.4em;
+  @include transition(all 0.2s linear);
+
+  &:hover {
+    color: $dark-red;
+  }
+}
+
+@include respond-to(desktop) {
+  .little-button {
+    font-size: 14px;
+    margin-right: 30px;
+    padding: 5px 0;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,58 @@
+.prompt-strip {
+
+  text-align: right;
+
+  .page-frame {
+    padding-bottom: 40px;
+  }
+
+  .button-container {
+    width: 50%;
+    display: inline-block;
+    &:first-child {
+      padding-right: 5px;
+    }
+    &:last-child {
+      padding-left: 5px;
+    }
+  }
+  .square-button {
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+}
+
+@include respond-to(tablet) {
+  .prompt-strip {
+
+    .square-button {
+      text-transform: none;
+    }
+
+    .hide-on-mobile {
+      display: inline;
+    }
+
+  }
+
+}
+
+@include respond-to(desktop) {
+  .prompt-strip {
+
+    .page-frame {
+      padding-bottom: 60px;
+    }
+
+    .button-container {
+      width: 25%;
+      &:first-child {
+        padding-right: 15px;
+      }
+    }
+  }
+}
+
+

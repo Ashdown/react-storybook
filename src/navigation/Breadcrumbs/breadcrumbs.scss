@@ -1,0 +1,76 @@
+@mixin get-breadcrumb-style($face-color, $pip-color, $pip-hover-colour, $pip-inactive-colour){
+  background-color: $face-color;
+  .breadcrumb {
+    &.active {
+      &:hover {
+        &:after {
+          background-color: $pip-hover-colour;
+        }
+      }
+      &:after {
+        background-color: $pip-color;
+      }
+      &:disabled {
+        &:after {
+          background-color: $pip-color;
+        }
+      }
+    }
+    &:disabled {
+      cursor: default;
+    }
+    &.inactive:after {
+      background-color: $pip-inactive-colour;
+    }
+  }
+}
+
+@mixin get-breadcrumb-spacing($breadcrumb-count, $breadcrumb-height) {
+  $column-width: calc(100% / #{$breadcrumb-count - 1});
+  .breadcrumb-item {
+    @for $i from 1 through $breadcrumb-count {
+      $column-count: $i - 1;
+      &:nth-child(#{$i}) {
+        .breadcrumb {
+          left: calc(#{$column-width} * #{$column-count});
+          margin-left: -$breadcrumb-height/2
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs {
+
+  $breadcrumb-height: 20px;
+  $spacing: 15px;
+
+  .breadcrumb-list {
+    position: relative;
+    min-height: ($spacing * 2) + $breadcrumb-height;
+    margin: 0 ($breadcrumb-height / 2);
+  }
+
+  .breadcrumb {
+    position: absolute;
+    top: 0;
+    &:after {
+      margin-top: $spacing;
+      display: block;
+      height: $breadcrumb-height;
+      width: $breadcrumb-height;
+      content: '';
+      border-radius: 50%;
+    }
+  }
+
+  @include get-breadcrumb-spacing(7, $breadcrumb-height);
+
+  &.red {
+    @include get-breadcrumb-style($red, $jaffa-orange, $white, $dark-red);
+  }
+  &.blue {
+    @include get-breadcrumb-style($blue, $mint, $white, $trench-blue)
+  }
+
+}

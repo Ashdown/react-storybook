@@ -1,0 +1,30 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {
+    BodyText
+} from '../src/atoms/typography'
+import {Form} from '../src/inputs'
+import {
+    TextInput
+} from '../src/atoms/Inputs'
+
+<Meta title="Inputs" component={BodyText}/>
+
+# Tokens
+
+Put the tokens here when you are more comfortable with the implementation
+
+<Canvas>
+    <Story name="Body Text">
+        <Form
+            onChange={data => console.log('onChange', data)}
+            onSubmit={data => console.log('onSubmit', data)}
+            onValidSubmit={data => console.log('onValidSumbit', data)}
+        >
+            <TextInput.Controlled name="text-input-red" isSquare placeholder="Placeholder text"
+                                  label="Example input label" required/>
+            <button type="submit">
+                Submit
+            </button>
+        </Form>
+    </Story>
+</Canvas>

@@ -1,0 +1,64 @@
+.dk-base-control {
+  position: relative;
+  clear: both;
+  @include transition(padding-bottom 0.2s linear);
+  .quaternary-heading {
+    margin: 20px 0 12px 0;
+    display: inline-block;
+  }
+
+  .character-count,
+  .validation-message {
+    display: block;
+    font-size: 12px;
+    line-height: 1.4em;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 300;
+  }
+  .character-count {
+    right: 0;
+    text-align: right;
+    color: $andesite;
+  }
+  .validation-message {
+    left: 0;
+    color: $red;
+    animation-name: reveal;
+    animation-duration: 0.5s;
+  }
+  &.has-character-count,
+  &.has-error,
+  &.has-feedback {
+    padding-bottom: 16px;
+  }
+
+  &.has-error {
+    .character-count {
+      color: $red;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .dk-base-control {
+    .quaternary-heading {
+      margin-top: 45px;
+    }
+
+    .character-count,
+    .validation-message {
+      font-size: 16px;
+      line-height: 1.4em;
+    }
+
+    &.has-character-count,
+    &.has-error,
+    &.has-feedback {
+      padding-bottom: 22px;
+    }
+  }
+}

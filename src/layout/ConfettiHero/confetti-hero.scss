@@ -1,0 +1,44 @@
+.confetti-hero {
+  background-size: 780px auto;
+  background-repeat: repeat;
+  background-position: center $masthead-height-mobile;
+  background-attachment: fixed;
+  overflow: hidden;
+
+  &.red {
+    background-color: $red;
+    background-image: url("https://MYORGANISATION.s3.eu-west-2.amazonaws.com/public/assets/img/layout/pink-pattern.png");
+  }
+
+  &.blue {
+    background-color: $blue;
+    background-image: url("https://MYORGANISATION.s3.eu-west-2.amazonaws.com/public/assets/img/layout/blue-pattern.png");
+  }
+
+  &.yellow {
+    background-color: $jaffa-orange;
+    background-image: url("https://MYORGANISATION.s3.eu-west-2.amazonaws.com/public/assets/img/layout/yellow-pattern.png");
+  }
+
+  &.grey {
+    background-color: $gabbro;
+    background-image: url("https://MYORGANISATION.s3.eu-west-2.amazonaws.com/public/assets/img/layout/grey-pattern.png");
+  }
+
+}
+
+@include respond-to(tablet) {
+  .confetti-hero {
+    background-size: 1030px auto;
+
+  }
+}
+@include respond-to(desktop) {
+  background-size: cover;
+}
+
+@include respond-to(big-desktop) {
+  .confetti-hero {
+    background-position-y: $masthead-height-big-desktop;
+  }
+}

@@ -1,0 +1,12 @@
+.quaternary-heading {
+  font-weight: $mobile-bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 1em;
+}
+
+@include respond-to(desktop) {
+  .quaternary-heading {
+    font-size: 22px;
+  }
+}

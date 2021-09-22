@@ -1,0 +1,6 @@
+.bolt {
+  &:before {
+    @include font-awesome('\f0e7');
+    display: inline-block;
+  }
+}

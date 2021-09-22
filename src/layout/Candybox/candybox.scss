@@ -1,0 +1,212 @@
+@import '../../util/vars/layout';
+
+.candybox {
+  $gutter-width: 10px;
+  $page-margin-width: 20px;
+  margin-top: $gutter-width;
+
+  .candybox-content {
+    background-color: $pumice;
+    border: 2px solid $granite;
+  }
+
+  .header-content {
+    overflow: hidden;
+  }
+
+  .main-content {
+    margin-top: $gutter-width;;
+    margin-bottom: $gutter-width;
+  }
+
+  .candybox-title {
+    margin-top: 0;
+    font-size: 16px;
+  }
+
+  &.has-link {
+    cursor: pointer;
+
+    .candybox-content {
+      @include transition(all 0.2s linear);
+
+      &:hover {
+        border-color: $black;
+
+        .candybox-title {
+          color: $red;
+        }
+      }
+    }
+
+  }
+
+  &.has-artwork {
+    .header {
+      overflow: hidden;
+    }
+
+    .information-panel,
+    .artwork {
+      float: right;
+    }
+
+    .information-panel {
+      width: 67%;
+      padding-left: $gutter-width / 2;
+    }
+
+    .artwork {
+      width: 33%;
+      padding-right: $gutter-width /2;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .candybox {
+    &.has-side-content {
+
+      .candybox-content {
+        overflow: hidden;
+      }
+
+      .main-content,
+      .side-content {
+        float: left;
+      }
+
+      .main-content {
+        width: 68%;
+      }
+
+      .side-content {
+        padding-left: 10px;
+        width: 32%;
+      }
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .candybox {
+    $gutter-width: 15px;
+    $transparent-grey: rgba(0, 0, 0, 0.25);
+
+    margin-top: $gutter-width;
+
+    .candybox-content {
+      max-width: 1215px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .main-content {
+      margin-top: $gutter-width;
+      margin-bottom: $gutter-width;
+    }
+
+    .candybox-title {
+      font-size: 22px;
+    }
+
+    &.has-side-content {
+      .main-content {
+        width: 73%;
+      }
+
+      .side-content {
+        padding-left: $gutter-width;
+        width: 27%;
+      }
+    }
+
+    &.has-link {
+
+      .candybox-content {
+        box-shadow: 0 0 $transparent-grey;
+
+        &:hover {
+          box-shadow: 5px 5px $transparent-grey;
+        }
+      }
+
+    }
+
+    &.has-artwork {
+      $artwork-width: 165px;
+
+      .main-content {
+        padding-left: $artwork-width + $gutter-width;
+        position: relative;
+      }
+
+      .information-panel,
+      .artwork {
+        float: none;
+        width: auto;
+      }
+
+      .artwork {
+        width: $artwork-width;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+      }
+
+      .information-panel {
+        padding-left: 0;
+      }
+
+    }
+  }
+}
+
+
+@include respond-to(big-desktop) {
+  .candybox {
+    $gutter-width: 15px;
+    $transparent-grey: rgba(0, 0, 0, 0.25);
+    $side-content-width: 300px;
+
+
+    &.has-side-content {
+      .main-content {
+        width: $desktop-content-max-width - $side-content-width;
+      }
+
+      .side-content {
+        width: $side-content-width;
+      }
+    }
+
+    &.has-artwork {
+
+      $artwork-width: 210px;
+
+      .main-content {
+        padding-left: $artwork-width + $gutter-width;
+        position: relative;
+      }
+
+      .information-panel,
+      .artwork {
+        float: none;
+        width: auto;
+      }
+
+      .artwork {
+        width: $artwork-width;
+      }
+
+      .information-panel {
+        padding-left: 0;
+      }
+
+    }
+
+  }
+}
+
+@import 'candybox-actions';

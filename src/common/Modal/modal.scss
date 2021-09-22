@@ -1,0 +1,263 @@
+@keyframes revealBackground {
+  from {opacity: 0}
+  to {opacity: 0.95}
+}
+
+@keyframes revealFace {
+  0% {opacity: 0}
+  20% {opacity: 0}
+  40% {opacity: 1}
+  100% {opacity: 1}
+}
+
+.modal {
+
+  $gutter-width: 13px;
+  $border: 4px solid $white;
+  $stripe-width: 4px;
+  $face-vertical-spacing: 15px;
+  $face-horizontal-spacing: 20px;
+  $content-z-index: 1050;
+
+  text-align: left;
+
+  .modal-content,
+  .background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .modal-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: $content-z-index;
+  }
+
+  .frame {
+    padding: 0 $gutter-width $gutter-width $gutter-width;
+    margin: 12px 12px 0 12px;
+    position: relative;
+    z-index: $content-z-index;
+    animation-name: revealFace;
+    animation-duration: 2.5s;
+  }
+
+  .background {
+    animation-name: revealBackground;
+    animation-duration: 0.5s;
+    background-color: $red;
+    opacity: 0.95;
+    z-index: $content-z-index - 1;
+  }
+
+  .face {
+    overflow: hidden;
+    background-color: $white;
+    border: $border;
+    padding: 0 $face-vertical-spacing $face-horizontal-spacing $face-vertical-spacing;
+  }
+
+  .body-text,
+  .abstract-text{
+    margin-top: 10px;
+  }
+
+  .quaternary-heading,
+  .intro-para{
+    margin-top: $face-horizontal-spacing;
+  }
+
+  .footer {
+    margin-top: 5px;
+    overflow: hidden;
+  }
+
+  .submit-button {
+    float: right;
+  }
+
+  .right-face,
+  .bottom-face{
+    position: absolute;
+    border-bottom: $border;
+  }
+
+  .right-face {
+    top: $gutter-width/2;
+    bottom: $gutter-width/2;
+    right: 0;
+    width: $gutter-width;
+    border-top: $border;
+    border-right: $border;
+    transform: SkewY(45deg);
+  }
+
+  .bottom-face {
+    bottom: 0;
+    left: $gutter-width * 1.5;
+    right: $gutter-width/2;
+    height: $gutter-width;
+    border-left: $border;
+    transform: SkewX(45deg);
+  }
+
+  .shadow {
+    $offset: $gutter-width - 2px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: $offset * 2;
+    right: $offset * 2;
+    bottom: -$offset;
+    left: 1px;
+    z-index: -75;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+    }
+    &:before {
+      top: -$offset;
+      left: 1px;
+      border-bottom: $offset solid rgba(0, 0, 0, 0.3);
+      border-left: $offset solid transparent;
+    }
+    &:after {
+      bottom: 0;
+      right: -$offset;
+      border-top: $offset solid rgba(0, 0, 0, 0.3);
+      border-right: $offset solid transparent;
+    }
+  }
+
+  &.blue {
+    .background {
+      background-color: $blue;
+    }
+  }
+
+  &.red-isometric,
+  &.blue-isometric {
+    .face,
+    .right-face,
+    .bottom-face{
+      border-color: $black;
+    }
+  }
+
+  &.blue-isometric {
+    .right-face {
+      background: repeating-linear-gradient(0, $jaffa-orange, $jaffa-orange $stripe-width, $blue $stripe-width, $blue (2 * $stripe-width));
+    }
+    .bottom-face {
+      background: repeating-linear-gradient(90deg,$jaffa-orange,$jaffa-orange $stripe-width, $blue $stripe-width, $blue (2 * $stripe-width));
+    }
+    .background {
+      background-color: $blue;
+    }
+  }
+
+  &.red-isometric {
+    .right-face {
+      background: repeating-linear-gradient(0, $jaffa-orange, $jaffa-orange $stripe-width, $red $stripe-width, $red (2 * $stripe-width));
+    }
+    .bottom-face {
+      background: repeating-linear-gradient(90deg,$jaffa-orange,$jaffa-orange $stripe-width, $red $stripe-width, $red (2 * $stripe-width));
+    }
+  }
+
+}
+
+@include respond-to(tablet) {
+  .modal {
+    $gutter-width: 26px;
+    $border-width: 8px;
+    $stripe-width: 12px;
+
+    .modal-content {
+      padding: 0 $gutter-width;
+    }
+
+    .frame {
+      margin-top: 48px;
+      padding-right: $gutter-width;
+      padding-bottom: $gutter-width;
+      padding-left: $gutter-width;
+      max-width: 670px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    $face-vertical-spacing: 30px;
+    $face-horizontal-spacing: 40px;
+
+    .face {
+      border-width: $border-width;
+      padding: 0 $face-horizontal-spacing 35px $face-horizontal-spacing;
+    }
+
+    .quaternary-heading,
+    .intro-para{
+      margin-top: $face-vertical-spacing;
+    }
+
+    .right-face,
+    .bottom-face {
+      border-bottom-width: $border-width;
+    }
+
+    .right-face {
+      top: $gutter-width/2;
+      bottom: $gutter-width/2;
+      width: $gutter-width;
+      border-top-width: $border-width;
+      border-right-width: $border-width;
+    }
+
+    .bottom-face {
+      bottom: 0;
+      left: $gutter-width * 1.5;
+      right: $gutter-width/2;
+      height: $gutter-width;
+      border-left-width: $border-width;
+    }
+
+    .shadow {
+      $offset: $gutter-width - 2px;
+      top: $offset * 2;
+      right: $offset * 2;
+      bottom: -$offset;
+      &:before {
+        top: -$offset;
+        border-bottom-width: $offset;
+        border-left-width: $offset;
+      }
+      &:after {
+        right: -$offset;
+        border-top-width: $offset;
+        border-right-width: $offset;
+      }
+    }
+
+    &.red-isometric {
+      .right-face {
+        background: repeating-linear-gradient(0deg,$jaffa-orange,$jaffa-orange $stripe-width,$red $stripe-width,$red (2 * $stripe-width));
+      }
+      .bottom-face {
+        background: repeating-linear-gradient(90deg,$jaffa-orange,$jaffa-orange $stripe-width,$red $stripe-width,$red (2 * $stripe-width));
+      }
+    }
+
+    &.blue-isometric {
+      .right-face {
+        background: repeating-linear-gradient(0deg,$jaffa-orange,$jaffa-orange $stripe-width,$blue $stripe-width,$blue (2 * $stripe-width));
+      }
+      .bottom-face {
+        background: repeating-linear-gradient(90deg,$jaffa-orange,$jaffa-orange $stripe-width,$blue $stripe-width,$blue (2 * $stripe-width));
+      }
+    }
+
+  }
+}

@@ -1,0 +1,34 @@
+.candybox-actions {
+
+  $gutter-width: 10px;
+  padding-bottom: $gutter-width;
+
+  .action-item {
+    &.has-isometric-button {
+      padding-right: 4px;
+    }
+  }
+
+  .square-button {
+    width: 100%;
+    margin-top: $gutter-width;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 100;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+}
+
+@include respond-to(desktop) {
+  .candybox-actions {
+    $gutter-width: 15px;
+    position: relative;
+    padding-bottom: $gutter-width;
+    .square-button {
+      margin-top: $gutter-width;
+    }
+  }
+}

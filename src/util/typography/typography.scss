@@ -1,0 +1,38 @@
+.primary-heading,
+.secondary-heading,
+.tertiary-heading,
+.quaternary-heading,
+.abstract-text,
+.body-text,
+.technical-text,
+.unimportant-text,
+.small-text{
+  color: $gabbro;
+
+  &.red {
+    color: $red;
+  }
+
+  &.amber {
+    color: $amber;
+  }
+
+  &.quote {
+    &:before,
+    &:after {
+      content: '"';
+    }
+  }
+}
+
+@import './vars';
+@import './primary-heading';
+@import './secondary-heading';
+@import './tertiary-heading';
+@import './quaternary-heading';
+@import './abstract-text';
+@import './body-text';
+@import './small-text';
+@import './technical-text';
+@import './unimportant-text';
+@import './bulleted';

@@ -1,0 +1,54 @@
+.grid-section {
+  $gutter-width: 10px;
+
+  .demo-column {
+    margin-top: $gutter-width;
+  }
+
+  .demo-column-content {
+    padding: $gutter-width;
+    background-color: $pumice;
+    opacity: 0.5;
+  }
+
+}
+
+@include respond-to(tablet) {
+  .grid-section {
+    $gutter-width: 15px;
+
+    .demo-columns {
+      overflow: hidden;
+    }
+
+    .demo-column-half,
+    .demo-column-quarter {
+      float: left;
+    }
+
+    .demo-column-half {
+      width: 50%;
+    }
+
+    .demo-column-quarter {
+      width: 25%;
+    }
+
+    .demo-column-content {
+      margin: 0 $gutter-width / 2;
+    }
+
+    .demo-column:first-child {
+      .demo-column-content {
+        margin-left: 0;
+      }
+    }
+
+    .demo-column:last-child {
+      .demo-column-content {
+        margin-right: 0;
+      }
+    }
+
+  }
+}

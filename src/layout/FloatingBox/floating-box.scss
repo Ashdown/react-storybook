@@ -1,0 +1,62 @@
+.floating-box {
+  display: none;
+}
+
+@include respond-to(desktop) {
+  .floating-box {
+
+    $gutter-width: 15px;
+
+    position: fixed;
+    top: $masthead-height-mobile;
+    right: 0;
+    left: 0;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    display: block;
+    opacity: 0;
+    z-index: -100;
+    @include transition(opacity 0.2s linear);
+
+    &.visible {
+      z-index: 600;
+      opacity: 1;
+      .floating-box-page-frame.page-frame {
+        padding-bottom: 0;
+      }
+    }
+
+    .inner-content {
+      height: $masthead-height-mobile;
+      overflow: hidden;
+    }
+
+    .body-text {
+      color: $white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &:first-child {
+        margin-top: 6px;
+      }
+    }
+
+
+  }
+}
+
+@include respond-to(big-desktop) {
+  .floating-box {
+    top: $masthead-height-big-desktop;
+
+    .inner-content {
+      height: $masthead-height-big-desktop;
+    }
+
+    .body-text {
+      &:first-child {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+

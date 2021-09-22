@@ -1,0 +1,21 @@
+.primary-heading {
+  margin-top: 25px;
+  font-weight: $mobile-bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 1.4em;
+}
+
+@include respond-to(tablet) {
+  .primary-heading {
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+}
+
+@include respond-to(desktop) {
+  .primary-heading {
+    margin-top: 50px;
+  }
+}

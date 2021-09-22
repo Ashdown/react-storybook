@@ -1,0 +1,82 @@
+.letterbox-actions {
+
+  $column-width: 10px;
+
+  margin-top: 5px;
+  overflow: hidden;
+
+  &.has-button-columns {
+
+    .action-item {
+      width: 50%;
+      float: left;
+
+      &:nth-child(odd) {
+        padding-right: $column-width / 2;
+      }
+
+      &:nth-child(even) {
+        padding-left: $column-width / 2;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        float: none;
+        width: auto;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .action-item.has-isometric-button,
+  &.has-button-columns .action-item.has-isometric-button{
+    padding-right: 5px;
+    padding-bottom: 2px;
+  }
+
+  .square-button,
+  .square-button.isometric {
+    margin-top: $column-width;
+    width: 100%;
+
+  }
+
+  .square-button {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .square-button.isometric {
+    overflow: visible;
+  }
+}
+
+@include respond-to(tablet) {
+  .letterbox-actions {
+    &.has-button-columns {
+      .action-item {
+        &:nth-child(odd),
+        &:nth-child(even) {
+          width: auto;
+          float: none;
+          padding-right: 0;
+          padding-left: 0
+        }
+      }
+
+    }
+
+    .action-item.has-isometric-button,
+    &.has-button-columns .action-item.has-isometric-button{
+      padding-right: 6px;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .letterbox-actions {
+    margin-top: 30px;
+  }
+}

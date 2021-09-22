@@ -1,0 +1,316 @@
+@import 'var';
+
+@mixin get-button-style($face-color, $border-color, $text-hover-color){
+  border-color: $border-color;
+  background-color: $face-color;
+  color: $border-color;
+  &:hover{
+    background-color: $border-color;
+    color: $text-hover-color;
+    &.disabled,
+    &:disabled {
+      border-color: $border-color;
+      background-color: $face-color;
+      color: $border-color;
+    }
+  }
+  &:focus {
+    //TODO: see _tab_focus.scss
+  }
+
+}
+
+.square-button {
+  $border-width: 2px;
+  $link-height: 40px;
+  font-weight: 600;
+  margin-top: 30px;
+  border: $border-width solid $gabbro;
+  color: $gabbro;
+  line-height: $link-height - (2 * $border-width);
+  font-size: 12px;
+  padding: 0 5px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  @include transition(all 0.2s linear);
+  &.disabled,
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  &:hover {
+    background-color: $gabbro;
+    color: $red;
+    &.disabled,
+    &:disabled {
+      color: $gabbro;
+      background-color: transparent;
+    }
+  }
+
+  &.transparent-transparent {
+    padding-left: 0;
+    padding-right: 0;
+    @include get-button-style(transparent, transparent, $red);
+    color: $gabbro;
+    &:hover {
+      &:disabled,
+      &.disabled {
+        color: $gabbro;
+      }
+    }
+  }
+
+  &.transparent-white {
+    @include get-button-style(transparent, $white, $red);
+  }
+
+  &.transparent-red {
+    @include get-button-style(transparent, $red, $white);
+  }
+
+  &.red-transparent {
+    @include get-button-style($red, transparent, $red);
+    color: $white;
+    &:hover {
+      border-color: $red;
+    }
+  }
+
+  &.white-red {
+    @include get-button-style($white, $red, $white);
+  }
+
+  &.white-blue {
+    @include get-button-style($white, $blue, $white);
+  }
+
+  &.blue-white {
+    @include get-button-style($blue, $white, $blue);
+  }
+
+  &.white-grey {
+    @include get-button-style($white, $andesite, $white);
+  }
+
+  &.white-white {
+
+    border-color: $white;
+    background-color: $white;
+    color: $red;
+    &:hover {
+      background-color: $pumice;
+      border-color: $pumice;
+    }
+  }
+
+  &.red-white {
+    @include get-button-style($red, $red, $dark-red);
+  }
+
+  &.red-red {
+    @include get-button-style($red, $red, $white);
+    color: $white;
+    &:hover {
+      color: $white;
+      background-color: $dark-red;
+      border-color: $dark-red;
+    }
+  }
+
+  &.transparent-grey {
+    @include get-button-style(transparent, $andesite, $red)
+  }
+
+  &.red-white {
+    @include get-button-style($red, $white, $red)
+  }
+
+  &.transparent-yellow {
+    @include get-button-style(transparent, $jaffa-orange, $red)
+  }
+
+  &.yellow-transparent {
+    @include get-button-style($jaffa-orange, transparent, $red);
+    color: $white;
+    &:hover {
+      border-color: $jaffa-orange;
+      color: $jaffa-orange;
+    }
+  }
+
+  &.mint-mint {
+    @include get-button-style($mint, $mint, $blue);
+    color: $blue;
+    &:hover {
+      background-color: $dark-mint;
+      border-color: $dark-mint;
+    }
+  }
+
+  &.mint-transparent {
+    @include get-button-style($mint, transparent, $blue);
+    color: $blue;
+    &:hover {
+      border-color: $mint;
+      color: $mint;
+    }
+  }
+
+  &.white-white-red {
+    @include get-button-style($white, $white, $white);
+    color: $red;
+    &:hover {
+      background-color: $pumice;
+      border-color: $pumice;
+      color: $red;
+    }
+  }
+
+  &.white-white-blue {
+    @include get-button-style($white, $white, $white);
+    color: $blue;
+    &:hover {
+      background-color: $pumice;
+      border-color: $pumice;
+      color: $blue;
+    }
+  }
+
+  &.wide {
+    min-width: $wide-width-mobile;
+    text-align: center;
+  }
+
+  &.isometric {
+    $gutter-width: 2px;
+    margin-top: 28px;
+    margin-right: $gutter-width;
+    margin-bottom: $gutter-width;
+    text-transform: uppercase;
+    font-weight: 600;
+    min-width: 120px;
+    position: relative;
+    border-color: $blue;
+    text-align: center;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      background-color: $blue;
+      border: 1px solid $blue;
+    }
+    &:before {
+      width: $gutter-width;
+      top: 0;
+      bottom: -($gutter-width + 2px);
+      right: -($gutter-width + 4px);
+      transform: skewY(45deg);
+    }
+    &:after {
+      height: $gutter-width;
+      right: -($gutter-width + 2px);
+      bottom: -($gutter-width + 4px);
+      left: 0;
+      transform: skewX(45deg);
+    }
+    &:active {
+      top: $gutter-width;
+      left: $gutter-width;
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+
+    &.red {
+      background-color: $red;
+      color: $white;
+      &:hover {
+        background-color: $dark-red;
+        &:disabled,
+        &.disabled{
+          background-color: $red;
+        }
+      }
+    }
+    &.white {
+      background-color: $white;
+      color: $red;
+      &:hover {
+        background-color: $pumice;
+        &.disabled,
+        &:disabled {
+          background-color: $white;
+        }
+      }
+    }
+    &.red-invert {
+      color: $white;
+      background-color: $red;
+      border-color: $white;
+      &:before,
+      &:after {
+        background-color: $white;
+        border-color: $white;
+      }
+      &:hover {
+        background-color: $dark-red;
+        &.disabled,
+        &:disabled {
+          background-color: $red;
+        }
+      }
+    }
+
+  }
+
+}
+
+@include respond-to(tablet) {
+  .square-button {
+    &.wide {
+      min-width: $wide-width-tablet;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .square-button {
+    margin-top: 50px;
+    font-size: 16px;
+    line-height: 38px;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-right: 10px;
+    &.wide {
+      min-width: $wide-width-desktop;
+    }
+    &.isometric {
+      $gutter-width: 4px;
+      min-width: 230px;
+      margin-top: 46px;
+      margin-right: $gutter-width;
+      margin-bottom: $gutter-width;
+      &:before {
+        top: 1px;
+        width: $gutter-width;
+        bottom: -($gutter-width + 1px);
+        right: -($gutter-width + 4px);
+      }
+      &:after {
+        height: $gutter-width;
+        left: 1px;
+        right: -($gutter-width + 1px);
+        bottom: -($gutter-width + 4px);
+      }
+      &:active {
+        top: $gutter-width;
+        left: $gutter-width;
+      }
+
+    }
+
+  }
+}

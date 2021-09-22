@@ -1,0 +1,149 @@
+.letterbox {
+
+  $column-width: 20px;
+
+  .content-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .letterbox-content {
+    overflow: hidden;
+    margin-top: 10px;
+    background-color: $pumice;
+    padding: 0 $column-width $column-width $column-width;
+  }
+
+  .information {
+    background-color: $white;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .letterbox-heading{
+    margin-top: $column-width;
+  }
+  .peaking-content {
+    display: none;
+  }
+  &.has-artwork {
+
+    $artwork-width: 25%;
+
+    .artwork,
+    .main-content{
+      float: left;
+    }
+    .artwork {
+      margin-top: 20px;
+      padding-right: 5px;
+      width: $artwork-width;
+    }
+    .main-content {
+      padding-left: 5px;
+      width: 100% - $artwork-width;
+    }
+    .side-content {
+      clear: both;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .letterbox {
+    .page-frame {
+      margin-top: 10px;
+      background-color: $pumice;
+    }
+    .letterbox-content {
+      margin-top: 0;
+      background-color: transparent;
+    }
+    &.has-side-content {
+
+      $side-content-width: 34.3%;
+      $gutter-width: 20px;
+
+      .main-content,
+      .side-content {
+        float: left;
+      }
+
+      .main-content {
+        width: 100% - $side-content-width;
+        padding-right: $gutter-width / 2;
+      }
+
+      .side-content {
+        width: $side-content-width;
+        padding-left: $gutter-width / 2;
+      }
+      &.has-artwork {
+        $artwork-width: 16.5%;
+        .artwork {
+          width: $artwork-width;
+        }
+        .main-content {
+          width: 100% - $artwork-width - $side-content-width;
+        }
+        .side-content {
+          clear: none;
+        }
+
+      }
+    }
+  }
+
+}
+
+@include respond-to(desktop) {
+  .letterbox {
+    .page-frame {
+      margin-top: 10px;
+      background-color: $pumice;
+    }
+    .letterbox-content {
+      margin-top: 0;
+      padding: 0 0 30px 0;
+      background-color: transparent;
+    }
+    .information {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .letterbox-heading{
+      margin-top: 30px;
+    }
+    &.has-side-content {
+
+      $side-content-width: 25.32%;
+
+      .main-content {
+        width: 100% - $side-content-width;
+      }
+
+      .side-content {
+        padding-left: 15px;
+        width: $side-content-width;
+      }
+
+      &.has-artwork {
+        $artwork-width: 12.66%;
+        .artwork {
+          width: $artwork-width;
+          padding-right: 10px;
+          padding-bottom: 20px;
+        }
+        .main-content {
+          width: 100% - $artwork-width - $side-content-width;
+        }
+        .side-content {
+          clear: none;
+        }
+      }
+    }
+
+  }
+}
+
+@import './letterbox-actions';

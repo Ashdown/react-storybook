@@ -1,0 +1,48 @@
+@import 'var';
+
+.square-tabs {
+
+  $half-gutter-width: $mobile-gutter-width / 2;
+
+  .tabs {
+    margin: 20px (-$half-gutter-width) 0 (-$half-gutter-width);
+    padding-bottom: $mobile-gutter-width;
+  }
+
+  .square-tab-content {
+    margin-top: $mobile-gutter-width;
+    .content-container {
+      animation-name: reveal;
+      animation-duration: 0.5s;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .square-tabs {
+
+    $half-gutter-width: $tablet-gutter-width / 2;
+
+    .tabs {
+      margin-left: -$half-gutter-width;
+      margin-right: -$half-gutter-width;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .square-tabs {
+
+    $half-gutter-width: $desktop-gutter-width / 2;
+
+    margin-top: 35px;
+
+    .tabs {
+      margin-left: -$half-gutter-width;
+      margin-right: -$half-gutter-width;
+    }
+
+  }
+}
+
+@import './square-tab';

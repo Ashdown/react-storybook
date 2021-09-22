@@ -1,0 +1,4 @@
+@mixin font-awesome-icon($unicode) {
+  font-family: 'FontAwesome', sans-serif;
+  content: $unicode;
+}

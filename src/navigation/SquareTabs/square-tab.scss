@@ -1,0 +1,92 @@
+@import 'var';
+
+@mixin get-square-tab-style($text-color, $background-color) {
+  background-color: $background-color;
+  border-color: $background-color;
+  color: $text-color;
+}
+
+.square-tab {
+
+  $half-gutter-width: $mobile-gutter-width / 2;
+
+  display: inline-block;
+  padding: $mobile-gutter-width $half-gutter-width 0 $half-gutter-width;
+
+  .square-button {
+    margin-top: 0;
+    text-align: center;
+    display: block;
+    width:100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-color: $white;
+  }
+
+  &.selected .square-button{
+    &.white-red {
+      @include get-square-tab-style($red, $jaffa-orange);
+    }
+    &.white-blue {
+      @include get-square-tab-style($blue, $mint);
+    }
+  }
+
+  &.quarter-type {
+    width: 50%;
+  }
+
+  &.fifth-type {
+
+    width: 50%;
+
+    &:nth-child(3),
+    &:nth-child(5) {
+      width: 33%;
+    }
+    &:nth-child(4) {
+      width: 34%;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .square-tab {
+
+    $half-gutter-width: $tablet-gutter-width / 2;
+
+    padding: $tablet-gutter-width $half-gutter-width 0 $half-gutter-width;
+
+    .hide-on-mobile {
+      display: inline;
+    }
+    &.quarter-type {
+      width: 25%;
+    }
+    &.fifth-type {
+      width: 20%;
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        width: 20%;
+      }
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .square-tab {
+
+    $half-gutter-width: $desktop-gutter-width / 2;
+
+    padding: $desktop-gutter-width $half-gutter-width 0 $half-gutter-width;
+
+    .square-button {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+
+  }
+}

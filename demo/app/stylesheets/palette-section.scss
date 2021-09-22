@@ -1,0 +1,107 @@
+.palette-section {
+  .demo-colour-list {
+    padding: 0 5px 5px 5px;
+  }
+  .demo-colour-box {
+    float: left;
+    width: 50%;
+    line-height: 45px;
+    text-align: center;
+    margin: 5px 0;
+    color: $white;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    &:after {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &:nth-child(odd) {
+      left: -5px;
+    }
+    &:nth-child(even) {
+      right: -5px;
+    }
+
+    &:hover:after {
+      display: block;
+    }
+
+    //$basic-palette: 'black' $black, 'white' $white;
+    $palette: (
+      //grey palette
+            'black': $black,
+            'basalt': $basalt,
+            'gabbro': $gabbro,
+            'andesite': $andesite,
+            'granite': $granite,
+            'pumice': $pumice,
+            'white': $white,
+      //candidate palette
+            'red': $red,
+            'dark-red': $dark-red,
+            'jaffa-orange': $jaffa-orange,
+            'dark-jaffa-orange': $dark-jaffa-orange,
+            'mustache-brown': $mustache-brown,
+      //company palette
+            'blue': $blue,
+            'mint': $mint,
+            'dark-mint': $dark-mint,
+            'trench-blue': $trench-blue,
+            'grape-purple': $grape-purple,
+    );
+
+    @each $classname, $hex in $palette {
+      &.#{$classname} {
+        background-color: $hex;
+        &:after {
+          background-color: $hex;
+          content: '#{$hex}';
+        }
+      }
+    }
+
+    &.white,
+    &.pumice {
+      color: $black;
+    }
+
+  }
+
+}
+@include respond-to(tablet) {
+  .palette-section {
+    .demo-colour-list {
+      padding: 0;
+    }
+    .demo-colour-box {
+      width: 155px;
+      margin-right: 10px;
+
+      &:nth-child(odd) {
+        left: 0;
+      }
+      &:nth-child(even) {
+        right: 0;
+      }
+    }
+  }
+
+}
+
+@include respond-to(big-desktop) {
+  .palette-section {
+    .demo-colour-box {
+      width: 285px;
+      margin: 7.5px 15px 7.5px 0;
+      &:nth-child(4n+0) {
+        margin-right: 0;
+      }
+    }
+
+  }
+
+}

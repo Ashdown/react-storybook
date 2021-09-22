@@ -1,0 +1,42 @@
+.chevron-back-link {
+
+  color: $andesite;
+  position: relative;
+  display: inline-block;
+  line-height: 57px;
+  padding: 0 30px;
+  @include transition(opacity 0.2s linear);
+
+  &:hover {
+    color: $white;
+  }
+
+  &:before {
+    @include font-awesome('\f078');
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    transform: rotate(90deg);
+  }
+
+  &.red {
+    color: $red;
+
+    &:hover {
+      color: $dark-red;
+    }
+  }
+
+}
+
+@include respond-to(desktop) {
+  .chevron-back-link {
+    line-height: 57px;
+  }
+}
+
+@include respond-to(big-desktop) {
+  .chevron-back-link {
+    line-height: $masthead-height-big-desktop;
+  }
+}

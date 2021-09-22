@@ -1,0 +1,1 @@
+export loremIpsum from './loremIpsum.js'

@@ -1,0 +1,77 @@
+@mixin get-link-style($colour, $hover-colour){
+
+  .accordion-link {
+    border-color: $colour;
+    .chevron-icon {
+      color: $colour;
+    }
+    &:hover {
+      border-color: $hover-colour;
+      .chevron-icon {
+        color: $hover-colour;
+      }
+    }
+  }
+}
+
+.accordion {
+
+  .accordion-link {
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    color: $black;
+    width: 100%;
+    text-align: left;
+    border-bottom: 2px solid $black;
+    @include transition(color 0.2s linear);
+  }
+  .chevron-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    &:before {
+      @include font-awesome('\f078');
+      display: inline-block;
+    }
+
+    @include transition(all 0.2s linear);
+  }
+  .accordion-content {
+    line-height: 1.5em;
+    color: $basalt;
+    overflow: hidden;
+    @include transition(height 0.2s linear);
+  }
+  .children-container {
+    opacity: 0;
+    overflow: hidden;
+    @include transition(opacity 0.2s linear 0.2s);
+  }
+  &.open {
+    .chevron-icon {
+      @include rotate(180deg);
+    }
+    .children-container {
+      opacity: 1;
+    }
+  }
+  &.red {
+    @include get-link-style($red, $dark-red)
+  }
+  &.blue {
+    @include get-link-style($blue, $trench-blue)
+  }
+}
+
+@include respond-to(desktop) {
+  .accordion {
+    .accordion-link {
+      padding: 10px 0;
+    }
+    .chevron-icon {
+      top: 15px;
+    }
+  }
+
+}
